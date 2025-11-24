@@ -1,0 +1,55 @@
+name: Test nl_upper.py
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    - name: Run tests
+      run: |
+        # --- Test 1: Basic test ---
+        echo -e "hello\nworld" | python3 nl_upper/nl_upper.py > output1.txt
+        
+        expected1=$'    1\tHELLO\n    2\tWORLD'
+        actual1=$(cat output1.txt)
+
+        if [ "$expected1" != "$actual1" ]; then
+          echo "Test 1 failed"
+          echo "Expected:"
+          printf "%q\n" "$expected1"
+          echo "Actual:"
+          printf "%q\n" "$actual1"
+          exit 1
+        fi
+
+        # --- Test 2: Empty line handling ---
+        echo -e "abc\n\nxyz" | python3 nl_upper/nl_upper.py > output2.txt
+        
+        expected2=$'    1\tABC\n    2\t\n    3\tXYZ'
+        actual2=$(cat output2.txt)
+
+        if [ "$expected2" != "$actual2" ]; then
+          echo "Test 2 failed"
+          echo "Expected:"
+          printf "%q\n" "$expected2"
+          echo "Actual:"
+          printf "%q\n" "$actual2"
+          exit 1
+        fi
+
+        echo "All tests passed successfully!"
+
