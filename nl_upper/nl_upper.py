@@ -7,16 +7,10 @@ import sys
 def main():
     n = 1
     for line in sys.stdin:
-        # 改行を除去
         s = line.rstrip("\n")
-
-        # 空行の場合 → 行番号だけ
-        if s == "":
-            print(f"{n:>4}\t")
-        else:
-            print(f"{n:>4}\t{s.upper()}")
+        # 空行も含めて行番号を付与し大文字変換
+        print(f"    {n}\t{s.upper()}")
         n += 1
 
 if __name__ == "__main__":
     main()
-
