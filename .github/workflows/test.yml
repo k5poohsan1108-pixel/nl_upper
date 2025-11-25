@@ -1,4 +1,4 @@
-name: Test nl_upper.py
+name: test
 
 on:
   push:
@@ -10,46 +10,41 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-python@v4
       with:
-        python-version: "3.10"
+        python-version: ${{ matrix.python-version }}
 
     - name: Run tests
       run: |
-        # --- Test 1: Basic test ---
-        echo -e "hello\nworld" | python3 nl_upper/nl_upper.py > output1.txt
-        
-        expected1=$'    1\tHELLO\n    2\tWORLD'
-        actual1=$(cat output1.txt)
+        echo "=== Running tests on Python ${{ matrix.python-version }} ==="
 
-        if [ "$expected1" != "$actual1" ]; then
+        # --- Test 1 ---
+        echo -e "hello\nworld" | python3 nl_upper/nl_upper.py > out1.txt
+        printf "    1\tHELLO\n    2\tWORLD\n" > exp1.txt
+
+        if ! diff -q exp1.txt out1.txt ; then
           echo "Test 1 failed"
-          echo "Expected:"
-          printf "%q\n" "$expected1"
-          echo "Actual:"
-          printf "%q\n" "$actual1"
+          diff -u exp1.txt out1.txt || true
           exit 1
         fi
 
-        # --- Test 2: Empty line handling ---
-        echo -e "abc\n\nxyz" | python3 nl_upper/nl_upper.py > output2.txt
-        
-        expected2=$'    1\tABC\n    2\t\n    3\tXYZ'
-        actual2=$(cat output2.txt)
+        # --- Test 2 ---
+        echo -e "abc\n\nxyz" | python3 nl_upper/nl_upper.py > out2.txt
+        printf "    1\tABC\n    2\t\n    3\tXYZ\n" > exp2.txt
 
-        if [ "$expected2" != "$actual2" ]; then
+        if ! diff -q exp2.txt out2.txt ; then
           echo "Test 2 failed"
-          echo "Expected:"
-          printf "%q\n" "$expected2"
-          echo "Actual:"
-          printf "%q\n" "$actual2"
+          diff -u exp2.txt out2.txt || true
           exit 1
         fi
 
-        echo "All tests passed successfully!"
+        echo "All tests passed on Python ${{ matrix.python-version }}!"
+
 
