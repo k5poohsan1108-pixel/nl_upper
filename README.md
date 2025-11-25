@@ -20,7 +20,7 @@ echo -e "hello\nworld" | ./nl_upper.py
 
 ファイルを指定してから使うとき
 
-$./nl_upper.py mytext.txt
+./nl_upper.py mytext.txt
 
 インストール
 
@@ -55,10 +55,13 @@ chmod +x nl_upper.py
 
 ## その他
 このプログラムは小さいですが、
+
 ・Git / コミット管理
 
 ・ライセンス表記
 
-・自動テスト(GitHub Actions)・ワークフロー構築
+・自動テスト(GitHub Actions)
+
+・ワークフロー構築
 
 といった、学んだことをまとめて練習できる内容になっています。
