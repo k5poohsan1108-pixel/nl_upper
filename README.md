@@ -14,17 +14,31 @@ GitHub Actions で自動テストも動くようにしてあり、Python の複�
 ・標準入力・ファイル入力の両方に対応
 
 ## 使い方
-標準入力から使うとき
 
-echo -e "hello\nworld" | ./nl_upper.py
+・ダウンロード
 
-ファイルを指定してから使うとき
+$ git clone https://github.com/k5poohsan1108-pixel/nl_upper.git
 
-./nl_upper.py mytext.txt
+$ cd nl_upper
 
-インストール
+・インストール
 
-chmod +x nl_upper.py
+$ chmod +x nl_upper.py
+
+・起動(標準入力）
+
+$ echo -e "hello\nworld" | ./nl_upper.py
+
+・出力
+
+1   HELLO
+2   WORLD
+
+起動(標準入力）
+
+$ ./nl_upper.py mytext.txt
+
+mytext.txt に書かれた各行が大文字化され、行番号付きで出力されます。
 
 ## 自動テスト(GitHub Actions）
 このリポジトリでは、以下の Python バージョンで自動テストが動きます：
