@@ -10,7 +10,18 @@ GitHub Actions で自動テストも動くようにしてあり、Python の複�
 
 ・各行に 行番号を付与
 
-・空行も正しくカウント
+・空行も行番号をつけてl_upper
+[![test](https://github.com/k5poohsan1108-pixel/nl_upper/actions/workflows/test.yml/badge.svg)](https://github.com/k5poohsan1108-pixel/nl_upper/actions/workflows/test.yml)
+
+行番号をつけながら、入力された文字を大文字に変換するコマンドです。
+GitHub Actions で自動テストも動くようにしてあり、Python の複数バージョンで確認しています。
+できることは
+
+・入力されたテキストを大文字に変換
+
+・各行に 行番号を付与
+
+・空行も行番号をつけて正しくカウント
 
 
 ## 使い方
@@ -31,9 +42,19 @@ $ echo -e "hello\nworld" | ./nl_upper.py
 
 ・出力
 
-1   HELLO
+  1   HELLO
 
-2   WORLD
+  2   WORLD
+
+$ echo -e "abc\n\nxyz" | ./nl_upper.py
+
+・出力
+
+   1   ABC
+   
+   2   
+   
+   3   XYZ
 
 起動(標準入力）
 
