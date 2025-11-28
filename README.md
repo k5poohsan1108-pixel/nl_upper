@@ -24,11 +24,11 @@ $ cd nl_upper
 
 ・インストール
 
-$ chmod +x nl_upper.py
+$ chmod +x nl_upper/nl_upper.py
 
 ・起動(標準入力）
 
-$ echo -e "hello\nworld" | ./nl_upper.py
+$ echo -e "hello\nworld" | ./nl_upper/nl_upper.py
 
 ・出力
 
@@ -36,7 +36,7 @@ $ echo -e "hello\nworld" | ./nl_upper.py
 
   2   WORLD
 
-$ echo -e "abc\n\nxyz" | ./nl_upper.py
+$ echo -e "abc\n\nxyz" | ./nl_upper/nl_upper.py
 
 ・出力
 
@@ -48,7 +48,7 @@ $ echo -e "abc\n\nxyz" | ./nl_upper.py
 
 起動(ファイル入力）
 
-$ ./nl_upper.py mytext.txt
+$ ./nl_upper/nl_upper.py mytext.txt
 
 mytext.txt に書かれた各行が大文字化され、行番号付きで出力されます。
 空行も正しく行番号付きで表示されます。
