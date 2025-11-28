@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Convert input text to uppercase with line numbers
 # SPDX-FileCopyrightText: 2025 yamaguchi keigo
 # SPDX-License-Identifier: GPL-3.0-or-later
 
