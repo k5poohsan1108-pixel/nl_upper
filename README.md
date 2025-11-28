@@ -33,6 +33,7 @@ $ echo -e "hello\nworld" | ./nl_upper.py
 ・出力
 
 1   HELLO
+
 2   WORLD
 
 起動(標準入力）
