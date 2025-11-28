@@ -50,6 +50,6 @@ jobs:
         # --- Test 3 ---
         echo -e "\n\n" | python3 nl_upper/nl_upper.py > out3.txt
         printf "    1\t\n    2\t\n" > exp3.txt
-        diff exp3.txt out3.txt
+        diff -q exp3.txt out3.txt
 
         echo "All tests passed!"
