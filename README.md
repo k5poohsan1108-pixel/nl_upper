@@ -2,7 +2,7 @@
 # nl_upper
 [![test](https://github.com/k5poohsan1108-pixel/nl_upper/actions/workflows/test.yml/badge.svg)](https://github.com/k5poohsan1108-pixel/nl_upper/actions/workflows/test.yml)
 
-行番号をつけながら、入力された文字を大文字に変換するコマンドです。標準入力もファイルもどちらも使えます。
+行番号をつけながら、入力された文字を大文字に変換するコマンドです。
 GitHub Actions で自動テストも動くようにしてあり、Python の複数バージョンで確認しています。
 できることは
 
@@ -12,7 +12,6 @@ GitHub Actions で自動テストも動くようにしてあり、Python の複�
 
 ・空行も正しくカウント
 
-・標準入力・ファイル入力の両方に対応
 
 ## 使い方
 
