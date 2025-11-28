@@ -48,7 +48,7 @@ jobs:
         # --- Test 3 ---
         echo -e "\n" | python3 nl_upper/nl_upper.py > out3.txt
 
-        printf "   1\t\n" > exp3.txt
+        printf "  1\t\n" > exp3.txt
 
         if ! diff -q exp3.txt out3.txt ; then
           echo "Test 3 failed"
