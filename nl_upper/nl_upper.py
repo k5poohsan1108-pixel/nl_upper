@@ -10,7 +10,7 @@ def main():
     for line in sys.stdin:
         s = line.rstrip("\n")
         # 空行も含めて行番号を付与し大文字変換
-        print(f"    {n}\t{s.upper()}")
+        print(f"{n:>4}\t{s.upper()}")
         n += 1
 
 if __name__ == "__main__":
