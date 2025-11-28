@@ -52,3 +52,4 @@ jobs:
         printf "    1\t\n    2\t\n" > exp3.txt
         diff exp3.txt out3.txt
 
+        echo "All tests passed!"
