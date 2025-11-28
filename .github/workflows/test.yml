@@ -27,7 +27,7 @@ jobs:
 
         # --- Test 1 ---
         echo -e "hello\nworld" | python3 nl_upper/nl_upper.py > out1.txt
-        printf "    1\tHELLO\n    2\tWORLD\n" > exp1.txt
+        printf "   1\tHELLO\n   2\tWORLD\n" > exp1.txt
 
         if ! diff -q exp1.txt out1.txt ; then
           echo "Test 1 failed"
@@ -37,7 +37,7 @@ jobs:
 
         # --- Test 2 ---
         echo -e "abc\n\nxyz" | python3 nl_upper/nl_upper.py > out2.txt
-        printf "    1\tABC\n    2\t\n    3\tXYZ\n" > exp2.txt
+        printf "   1\tABC\n   2\t\n   3\tXYZ\n" > exp2.txt
 
         if ! diff -q exp2.txt out2.txt ; then
           echo "Test 2 failed"
@@ -48,7 +48,7 @@ jobs:
         # --- Test 3 ---
         echo -e "\n" | python3 nl_upper/nl_upper.py > out3.txt
 
-        printf "  1\t\n" > exp3.txt
+        printf "   1\t\n" > exp3.txt
 
         if ! diff -q exp3.txt out3.txt ; then
           echo "Test 3 failed"
