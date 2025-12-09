@@ -1,10 +1,6 @@
 name: test
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 jobs:
   test:
@@ -15,46 +11,11 @@ jobs:
         python-version: ["3.9", "3.10", "3.11", "3.12"]
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
 
-    - name: Run tests
-      run: |
-        echo "=== Running tests on Python ${{ matrix.python-version }} ==="
+      - run: bash tests/test.sh
 
-        # --- Test 1 ---
-        echo -e "hello\nworld" | python3 nl_upper/nl_upper.py > out1.txt
-        printf "   1\tHELLO\n   2\tWORLD\n" > exp1.txt
-
-        if ! diff -q exp1.txt out1.txt ; then
-          echo "Test 1 failed"
-          diff -u exp1.txt out1.txt || true
-          exit 1
-        fi
-
-        # --- Test 2 ---
-        echo -e "abc\n\nxyz" | python3 nl_upper/nl_upper.py > out2.txt
-        printf "   1\tABC\n   2\t\n   3\tXYZ\n" > exp2.txt
-
-        if ! diff -q exp2.txt out2.txt ; then
-          echo "Test 2 failed"
-          diff -u exp2.txt out2.txt || true
-          exit 1
-        fi
-
-        # --- Test 3 ---
-        echo -e "\n" | python3 nl_upper/nl_upper.py > out3.txt
-
-        printf "   1\t\n   2\t\n" > exp3.txt
-
-
-        if ! diff -q exp3.txt out3.txt ; then
-          echo "Test 3 failed"
-          diff -u exp3.txt out3.txt || true
-          exit 1
-        fi
-
-        echo "All tests passed on Python ${{ matrix.python-version }}!"
