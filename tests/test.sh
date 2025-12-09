@@ -12,8 +12,11 @@ printf "   1\tABC\n   2\t\n   3\tXYZ\n" > exp2.txt
 diff -u exp2.txt out2.txt
 
 # Test 3
-echo -e "\n" | ./nl_upper > out3.txt
+printf "\n" | ./nl_upper > out3.txt
 printf "   1\t\n" > exp3.txt
-diff -u exp3.txt out3.txt
 
-echo "All tests passed!"
+if ! diff -q exp3.txt out3.txt ; then
+  echo "Test 3 failed"
+  diff -u exp3.txt out3.txt || true
+  exit 1
+fi
