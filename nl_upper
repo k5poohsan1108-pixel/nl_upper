@@ -8,15 +8,13 @@ import sys
 def main():
     n = 1
     for line in sys.stdin:
-        if line == "":
-            break
+        s = line.rstrip("\n")
 
-        line = line.rstrip("\n")
-
-        if line == "":
+        if s == "":
             print(f"{n:>4}\t")
         else:
-            print(f"{n:>4}\t{line.upper()}")
+            print(f"{n:>4}\t{s.upper()}")
+
         n += 1
 
 if __name__ == "__main__":
