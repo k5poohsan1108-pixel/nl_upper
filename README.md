@@ -35,7 +35,7 @@ $ chmod +x nl_upper
 ```bash
 $ echo -e "hello\nworld" | ./nl_upper
 ```
-##出力例
+### 出力例
 
 ```text
    1	HELLO
