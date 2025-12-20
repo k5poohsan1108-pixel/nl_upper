@@ -23,20 +23,24 @@
 ```bash
 $ git clone https://github.com/k5poohsan1108-pixel/nl_upper.git
 $ cd nl_upper
+```
 
 ### 実行権限の付与
 
+```bash
 $ chmod +x nl_upper
-
+```
 ### 標準入力から実行
 
+```bash
 $ echo -e "hello\nworld" | ./nl_upper
-
+```
 ##出力例
 
+```text
    1	HELLO
    2	WORLD
-
+```
 ## 自動テスト(GitHub Actions)
 
 このリポジトリでは、以下のpythonバージョンで自動テストが動きます。
@@ -48,18 +52,8 @@ Python 3.7 / 3.8 / 3.9 / 3.10
 ## 権利関係・謝辞
 本ソフトウェアはGPL-3.0-or-laterで配布
 
-# SPDX-FileCopyrightText: 2025 yamaguchi keigo
 
-# SPDX-License-Identifier: GPL-3.0-or-later
 
-## その他
 
-このプログラムは小さいですが、
 
-ライセンス表記
 
-自動テスト
-
-ワークフロー構築
-
-といった、学んだことをまとめて練習できる内容になっています。
