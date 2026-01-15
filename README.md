@@ -26,7 +26,7 @@ $ cd nl_upper
 $ chmod +x nl_upper
 ```
 ## ライセンス
-
+このソフトウェアはGPL3.0ライセンスに基づいている。
 
 
 
