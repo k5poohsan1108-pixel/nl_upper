@@ -5,7 +5,12 @@
 標準入力から読み込んだテキストを、大文字に変換して行番号付きで出力するコマンド。
 
 ---
-
+## インストール
+```bash
+$ git clone https://github.com/k5poohsan1108-pixel/nl_upper.git
+$ cd nl_upper
+$ chmod +x nl_upper
+```
 ## 使い方
 ```bash
 $ echo -e "hello\n\nworld" | ./nl_upper
@@ -19,12 +24,6 @@ $ echo -e "hello\n\nworld" | ./nl_upper
 - 英小文字は英大文字に変換
 - 空行も行番号として扱う
 
-## インストール
-```bash
-$ git clone https://github.com/k5poohsan1108-pixel/nl_upper.git
-$ cd nl_upper
-$ chmod +x nl_upper
-```
 ## ライセンス
 このソフトウェアはGPL3.0ライセンスに基づいている。
 
