@@ -3,6 +3,9 @@ set -e
 
 # Test 1
 echo -e "hello\nworld" | ../nl_upper > out1.txt
+status=$?
+test "$status" -eq 0
+
 printf "   1\tHELLO\n   2\tWORLD\n" > exp1.txt
 diff -u exp1.txt out1.txt
 
